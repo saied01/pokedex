@@ -1,7 +1,7 @@
 {
   "name": "pokedex",
   "private": true,
-  "homepage": "https://saied01.github.io/pokedex",
+  "homepage": "https://saied01.github.io/pokedex/",
   "version": "0.0.0",
   "type": "module",
   "scripts": {
