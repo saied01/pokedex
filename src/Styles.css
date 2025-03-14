@@ -1,0 +1,292 @@
+/*General*/
+:root {
+    --primary-color: #202a27;
+    --secondary-color: #86c3c6;
+    --tertiary-color: #c2edf8;
+    --bg-color: #ec7277;
+    --gradient-start: var(--primary-color);
+    --gradient-end: var(--secondary-color);
+}
+*{
+    box-sizing: border-box; /* Asegura que padding y border no expandan el tamaño de los elementos */
+    font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+    color: var(--primary-color);
+}
+html, body {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    overflow-x: hidden; /* Elimina el desplazamiento horizontal */
+    box-sizing: border-box; /* Evita que los elementos se expandan fuera del contenedor */
+}
+button {
+    cursor: pointer;
+}
+.text-gradient {
+    -webkit-text-fill-color: transparent;
+    -webkit-background-clip: text;
+    background-image: linear-gradient(135deg, var(--gradient-start) 0, var(--gradient-end) 100%);
+    background-size: 100%;
+    -webkit-box-decoration-break: clone;
+}
+
+
+
+/* estilizado SideNav */
+.side-nav {
+    width: 350px;
+    height: 100vh;
+    overflow-y: auto;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    background-color: var(--bg-color);
+}
+
+.side-nav.closed {
+    transform: translateX(-100%);
+}
+
+/* Mostrar la SideNav en pantallas grandes */
+
+
+@media (max-width: 980px) {
+    .side-nav.open {
+        width: 100%;
+    }
+}
+.nav-card {
+    border: transparent;
+    background-color: var(--bg-color);
+    border-radius: 8px;
+    flex-direction: column;
+    width: 100%;
+}
+.nav-card:hover {
+    background-color: var(--secondary-color);
+    transition: .5s;
+}
+.nav-filter {
+    width: 95%;
+    height: 52px;
+    min-height: 52px;
+    max-height: 52px;
+    color: var(--primary-color);
+    background-color: var(--secondary-color);
+    border-radius: 15px;
+    padding: 10px;
+    box-sizing: border-box;
+}
+.nav-filter:focus {
+    outline: none;
+}
+.nav-number {
+    margin-bottom: 0;
+    align-items: flex-start;
+    font-size: 10px;
+}
+.nav-name {
+    margin-top: 0;
+    font-size: 16px;
+    font-weight: 550;
+}
+.side-nav::-webkit-scrollbar {
+    width: 9px;
+}
+
+.side-nav::-webkit-scrollbar-track {
+    background: #202a27; /* Fondo del track */
+    border-radius: 0;
+}
+
+.side-nav::-webkit-scrollbar-thumb {
+    background: var(--secondary-color); /* Color del scroller */
+    border-radius: 0;
+}
+
+/* estilizado header */
+.header {
+    top: 0;
+    left: 0; /* Asegura que el header esté a la izquierda */
+    z-index: 10; /* Asegura que el header esté encima de la sidenav */
+    display: flex;
+    justify-content: flex-start; /* Alinea los elementos al inicio (izquierda) */
+    padding: 10px 20px; /* Agrega algo de espacio */
+    background-color: transparent; /* Puedes poner el fondo si lo prefieres */
+    font-size: 28px;
+    font-weight: bold;
+}
+header {
+    position: fixed;
+    top: 0;
+    left: 0; /* Asegura que el header esté a la izquierda */
+    display: flex;
+    justify-content: flex-start; /* Alinea los elementos al inicio (izquierda) */
+    padding: 10px 20px; /* Agrega algo de espacio */
+    background-color: transparent; /* Puedes poner el fondo si lo prefieres */
+    font-size: 15px;
+    font-weight: bold;
+}
+@media (max-width: 810px) {
+    header h1 {
+        display: none;
+    }
+}
+
+
+/* estilizado PokeCard */
+.poke-card {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+    overflow: hidden;
+    text-align: center;
+    width: 100%;
+    max-width: 900px;
+    margin: auto;
+}
+.poke-card h2 {
+    font-size: 24px;
+    max-width: 100%;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+.default-image {
+    width: 300px;
+}
+.type-tile {
+    font-weight: bolder;
+    width: 100px;
+    border-radius: 4px;
+    border: var(--secondary-color);
+}
+.stats-card {
+    display: grid;
+    grid-template-columns: repeat(2, max-content); /* Dos columnas */
+    gap: 1px 60px; /* Espacio entre filas y columnas */
+    border: 2px solid var(--primary-color); /* Borde para el contenedor */
+    padding: 10px; /* Opcional: para evitar que los bordes estén pegados al contenido */
+    border-radius: 20px;
+    width: 500px;
+    justify-items: center;
+    justify-content: center;
+    background-color: var(--secondary-color);
+}
+.stat-item {
+    font-size: 18px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 120px;
+    gap: 20px;
+    border: var(--primary-color);
+}
+.stat-item p {
+    font-weight: bolder;
+}
+.pokemon-moves-grid {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 5px;
+    max-width: 100%;
+    padding: 10px;
+    overflow-y: auto;
+}
+.pokemon-moves-grid h3 {
+    display: flex;
+    justify-content: flex-start;
+    align-items: start;
+    align-self: start;
+}
+body::-webkit-scrollbar {
+    width: 9px;
+    outline: none;
+}
+
+body::-webkit-scrollbar-track {
+    background: #202a27; /* Fondo del track */
+    border-radius: 0;
+    outline: none;
+}
+
+body::-webkit-scrollbar-thumb {
+    background: var(--bg-color); /* Color del scroller */
+    border-radius: 0;
+    outline: none;
+}
+.move-button {
+    padding: 8px 14px;
+    cursor: pointer;
+    border-radius: 7px;
+    border: 2px solid var(--primary-color);
+    box-shadow: 2px 2px 0 0 var(--primary-color), 4px 4px 0 0 lightblue;
+}
+.move-button:hover {
+    background-color: var(--secondary-color);
+    transition: 0.2s;
+    box-shadow: 1px 1px 0 0 var(--primary-color), 3px 3px 0 0 lightblue;
+    transform: translate(2px, 2px);
+}
+
+body {
+    background-color: var(--bg-color);
+}
+
+
+.modal-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 1000; /* Asegura que esté sobre otros elementos */
+}
+
+.modal-content {
+    background: var(--tertiary-color);
+    padding: 20px;
+    border-radius: 10px;
+    width: 50%;
+    height: 40%;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
+    z-index: 1001;
+}
+
+.modal-underlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: transparent; /* Hace clic fuera para cerrar */
+    border: none;
+}
+
+
+.open-nav-button {
+    background: none;
+    border: none;
+    font-size: 60px;
+    z-index: 11;
+    padding: 20px;
+}
+
+
+.pokemon-title h3, h2 {
+    font-weight: bolder;
+    text-decoration: underline;
+    text-decoration-color: var(--primary-color); /* Color del subrayado */
+    text-decoration-thickness: 2px; /* Grosor del subrayado */
+}
