@@ -5,8 +5,4 @@ import react from '@vitejs/plugin-react'
 export default defineConfig({
   base: '/pokedex',
   plugins: [react()],
-  build: {
-    outDir: 'dist',
-    assetsDir: 'assets',
-},
 })
